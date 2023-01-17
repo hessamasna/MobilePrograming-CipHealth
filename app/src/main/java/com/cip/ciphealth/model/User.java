@@ -30,6 +30,8 @@ public class User {
     private String gender;
     @ColumnInfo(name = "dietID")
     private int dietID;
+    @ColumnInfo(name = "bmi")
+    private int bmi;
 
 
     public User(String email, String password) {
@@ -44,6 +46,15 @@ public class User {
         this.gender = "";
         this.dietID = 0;
         this.weightGoal = 0;
+        this.bmi = 0;
+    }
+
+    public int getBmi() {
+        return bmi;
+    }
+
+    public void setBmi(int bmi) {
+        this.bmi = bmi;
     }
 
     public int getWeightGoal() {
@@ -157,6 +168,7 @@ public class User {
                 ", length=" + length +
                 ", gender='" + gender + '\'' +
                 ", dietID=" + dietID +
+                ", bmi=" + bmi +
                 '}';
     }
 }
