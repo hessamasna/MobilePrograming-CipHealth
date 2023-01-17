@@ -10,8 +10,24 @@ public class Diet {
     private int ID;
     @ColumnInfo(name = "diet_name")
     private String dietName;
+    @ColumnInfo(name = "diet_goal")
+    private String dietGoal;
     @ColumnInfo(name = "diet_text")
     private String dietText;
+
+    public Diet(String dietName, String dietGoal, String dietText) {
+        this.dietName = dietName;
+        this.dietGoal = dietGoal;
+        this.dietText = dietText;
+    }
+
+    public String getDietGoal() {
+        return dietGoal;
+    }
+
+    public void setDietGoal(String dietGoal) {
+        this.dietGoal = dietGoal;
+    }
 
     public int getID() {
         return ID;
