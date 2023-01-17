@@ -22,6 +22,8 @@ public class User {
     private int score;
     @ColumnInfo(name = "weight")
     private int weight;
+    @ColumnInfo(name = "weight_goal")
+    private int weightGoal;
     @ColumnInfo(name = "length")
     private int length;
     @ColumnInfo(name = "gender")
@@ -41,6 +43,15 @@ public class User {
         this.length = 0;
         this.gender = "";
         this.dietID = 0;
+        this.weightGoal = 0;
+    }
+
+    public int getWeightGoal() {
+        return weightGoal;
+    }
+
+    public void setWeightGoal(int weightGoal) {
+        this.weightGoal = weightGoal;
     }
 
     public int getID() {
@@ -142,6 +153,7 @@ public class User {
                 ", isLoggedIn=" + isLoggedIn +
                 ", score=" + score +
                 ", weight=" + weight +
+                ", weightGoal=" + weightGoal +
                 ", length=" + length +
                 ", gender='" + gender + '\'' +
                 ", dietID=" + dietID +
