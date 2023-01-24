@@ -67,21 +67,20 @@ public class Login extends AppCompatActivity {
         user.setLoggedIn(true);
         db.userDao().update(user);
 
-//        LoggedInUser.loggedInUser = new LoggedInUser(user);
-//        LoggedInUser.loggedInUser.setUserGameSetting(db.gameSettingDao().getGameSetting(user.getSettingID()));
-//
-//        //todo navigate to main page
-//        Intent secondActivityIntent = new Intent(
-//                getApplicationContext(), GameStarter.class
-//        );
-//        startActivity(secondActivityIntent);
+        LoggedInUser.loggedInUser = new LoggedInUser(user);
+
+        //todo navigate to main page
+        Intent secondActivityIntent = new Intent(
+                getApplicationContext(), MainPage.class
+        );
+        startActivity(secondActivityIntent);
 
     }
 
     public void goToSignUp(View v) {
-//        Intent secondActivityIntent = new Intent(
-//                getApplicationContext(), SignUp.class
-//        );
-//        startActivity(secondActivityIntent);
+        Intent secondActivityIntent = new Intent(
+                getApplicationContext(), SignUp.class
+        );
+        startActivity(secondActivityIntent);
     }
 }
