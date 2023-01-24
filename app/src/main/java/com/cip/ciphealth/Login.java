@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cip.ciphealth.db.AppDatabase;
+import com.cip.ciphealth.model.LoggedInUser;
 import com.cip.ciphealth.model.User;
 
 public class Login extends AppCompatActivity {
@@ -26,14 +27,13 @@ public class Login extends AppCompatActivity {
         if (user != null && user.getLoggedIn()) {
             Toast.makeText(this.getApplicationContext(), "Welcome: " + user.getName(), Toast.LENGTH_SHORT).show();
 
-//            LoggedInUser.loggedInUser = new LoggedInUser(user);
-//            LoggedInUser.loggedInUser.setUserGameSetting(db.gameSettingDao().getGameSetting(user.getSettingID()));
+            LoggedInUser.loggedInUser = new LoggedInUser(user);
 
-//            //todo navigate to main page
-//            Intent secondActivityIntent = new Intent(
-//                    getApplicationContext(), GameStarter.class
-//            );
-//            startActivity(secondActivityIntent);
+            //todo navigate to main page
+            Intent secondActivityIntent = new Intent(
+                    getApplicationContext(), MainPage.class
+            );
+            startActivity(secondActivityIntent);
         }
     }
 
@@ -46,15 +46,13 @@ public class Login extends AppCompatActivity {
 
         if (emailField.getText().toString().equals("") || emailField.getText().toString().equals("")) {
             loginError.setText("ERROR: FILL INPUTS");
-
             return;
-
         }
 
         User user = null;
         user = db.userDao().getUserByEmail(emailField.getText().toString());
 
-        if (user == null) {
+        if (user == null)    {
             loginError.setText("ERROR: WE DON'T HAVE THIS EMAIL");
             return;
         }
