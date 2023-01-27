@@ -1,6 +1,7 @@
 package com.cip.ciphealth.adapter;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +59,7 @@ public class FoodRecipeSocialAdapter extends RecyclerView.Adapter<FoodRecipeSoci
             super(itemView);
             food_recipe_title = itemView.findViewById(R.id.food_recipe_title);
             food_recipe_author = itemView.findViewById(R.id.food_recipe_author);
-            food_recipe_date = itemView.findViewById(R.id.health_tips_date);
+            food_recipe_date = itemView.findViewById(R.id.food_recipe_date);
             food_recipe_like = itemView.findViewById(R.id.food_recipe_like);
             food_recipe_btn = itemView.findViewById(R.id.food_recipe_btn);
         }
@@ -67,42 +68,55 @@ public class FoodRecipeSocialAdapter extends RecyclerView.Adapter<FoodRecipeSoci
             food_recipe_title.setText(foodRecipe.getRecipeTitle());
             food_recipe_author.setText(foodRecipe.getRecipeAuthor());
             food_recipe_date.setText(foodRecipe.getTipsDate());
-            food_recipe_like.setText(foodRecipe.getRecipeLikes());
+            food_recipe_like.setText("Likes: " + foodRecipe.getRecipeLikes() + "💘");
             food_recipe_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showPopup(v, foodRecipe);
+                    showPopup(v, foodRecipe, db);
                 }
             });
         }
     }
 
-    public void showPopup(View v, FoodRecipe foodRecipe) {
+    public void showPopup(View v, FoodRecipe foodRecipe, AppDatabase db) {
 
-//        TextView popup_username;
-//        TextView popup_email;
-//        TextView popup_phone;
-//        Button cancelBtn;
-//
-//        Dialog myDialog = new Dialog(context);
-//        myDialog.setContentView(R.layout.scoreboard_popup);
-//        myDialog.getWindow().setBackgroundDrawableResource(R.drawable.shap);
-//
-//        popup_username = (TextView) myDialog.findViewById(R.id.popup_userame);
-//        popup_email = (TextView) myDialog.findViewById(R.id.popup_email);
-//        popup_phone = (TextView) myDialog.findViewById(R.id.popup_phone);
-//        cancelBtn = (Button) myDialog.findViewById(R.id.cancelBtn);
-//
-//        popup_username.setText(user.getName());
-//        popup_email.setText(user.getEmail());
-//        popup_phone.setText(user.getPhone());
-//
-//        cancelBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                myDialog.dismiss();
-//            }
-//        });
-//        myDialog.show();
+        Dialog myDialog = new Dialog(context);
+        myDialog.setContentView(R.layout.food_recipe_popup);
+        TextView food_recipe_popup_title, food_recipe_popup_author, food_recipe_popup_date, food_recipe_popup_like, food_recipe_popup_close_btn, food_recipe_popup_message;
+
+        food_recipe_popup_title = (TextView) myDialog.findViewById(R.id.food_recipe_popup_title);
+        food_recipe_popup_author = (TextView) myDialog.findViewById(R.id.food_recipe_popup_author);
+        food_recipe_popup_date = (TextView) myDialog.findViewById(R.id.food_recipe_popup_date);
+        food_recipe_popup_like = (TextView) myDialog.findViewById(R.id.food_recipe_popup_like);
+        food_recipe_popup_close_btn = (TextView) myDialog.findViewById(R.id.food_recipe_popup_close_btn);
+        food_recipe_popup_message = (TextView) myDialog.findViewById(R.id.food_recipe_popup_message);
+
+
+        food_recipe_popup_title.setText(foodRecipe.getRecipeTitle());
+        food_recipe_popup_author.setText(foodRecipe.getRecipeAuthor());
+        food_recipe_popup_date.setText(foodRecipe.getTipsDate());
+        food_recipe_popup_like.setText("" + foodRecipe.getRecipeLikes() + "💘");
+        food_recipe_popup_message.setText(foodRecipe.getRecipeText());
+
+
+        food_recipe_popup_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foodRecipe.setRecipeLikes(foodRecipe.getRecipeLikes() + 1);
+                food_recipe_popup_like.setText("" + foodRecipe.getRecipeLikes() + "💘");
+                db.foodRecipeDao().update(foodRecipe);
+            }
+        });
+
+
+        food_recipe_popup_close_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                foodRecipeList = db.foodRecipeDao().getAllFoodRecipes();
+                myDialog.dismiss();
+            }
+        });
+
+        myDialog.show();
     }
 }
