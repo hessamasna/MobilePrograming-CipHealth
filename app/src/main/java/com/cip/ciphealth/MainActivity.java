@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     sleep(3*1000);
 
-                    Intent i=new Intent(getBaseContext(),FoodRecipeSocial.class);
+                    Intent i=new Intent(getBaseContext(),Login.class);
                     startActivity(i);
 
                     finish();

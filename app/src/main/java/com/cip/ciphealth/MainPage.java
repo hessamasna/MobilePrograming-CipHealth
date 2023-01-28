@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 import com.cip.ciphealth.adapter.HealthTipsAdapter;
 import com.cip.ciphealth.db.AppDatabase;
+import com.cip.ciphealth.model.LoggedInUser;
+import com.cip.ciphealth.model.WeightTracker;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
@@ -75,8 +77,10 @@ public class MainPage extends AppCompatActivity {
 
     }
     public void RecordWeight(View v) {
+        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
+        Date date = new Date();
         EditText weight = (EditText) findViewById(R.id.weight_tracker_input);
-        int day = new Date().getDate();
+        int day = date.getDate();
         list.add(new Entry((float) day, Float.parseFloat(weight.getText().toString())));
 
         lineDataSet = new LineDataSet(list,"Weight");
@@ -86,5 +90,9 @@ public class MainPage extends AppCompatActivity {
         lineChart.setData(lineData);
         lineChart.notifyDataSetChanged(); // let the chart know it's data changed
         lineChart.invalidate();
+
+        WeightTracker weightTracker = new WeightTracker(LoggedInUser.getLoggedInUser().getUser().getID(),weight.getText().toString(),String.valueOf(date.getDate()));
+        db.weightDao().insertWeightTracker(weightTracker);
+
     }
 }
