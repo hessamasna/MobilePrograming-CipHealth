@@ -30,8 +30,8 @@ public class FoodRecipeSocial extends AppCompatActivity {
         setContentView(R.layout.activity_food_recipe_social);
 
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        FoodRecipe foodRecipe = new FoodRecipe("Food Recipe", "Meet & pizzaMeet & pizzaMeet & pizzaMeet & pizzaMeet & pizza", "2022", "admin");
-        db.foodRecipeDao().insertFoodRecipe(foodRecipe);
+//        FoodRecipe foodRecipe = new FoodRecipe("Food Recipe", "Meet & pizzaMeet & pizzaMeet & pizzaMeet & pizzaMeet & pizza", "2022", "admin");
+//        db.foodRecipeDao().insertFoodRecipe(foodRecipe);
         RecyclerView recyclerView = findViewById(R.id.food_recipe_social_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 

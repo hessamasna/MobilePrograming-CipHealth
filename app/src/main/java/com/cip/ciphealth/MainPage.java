@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -94,5 +95,11 @@ public class MainPage extends AppCompatActivity {
         WeightTracker weightTracker = new WeightTracker(LoggedInUser.getLoggedInUser().getUser().getID(),weight.getText().toString(),String.valueOf(date.getDate()));
         db.weightDao().insertWeightTracker(weightTracker);
 
+    }
+    public void GotoRecipeSocial(View v) {
+        Intent secondActivityIntent = new Intent(
+                getApplicationContext(), FoodRecipeSocial.class
+        );
+        startActivity(secondActivityIntent);
     }
 }

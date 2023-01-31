@@ -3,6 +3,9 @@ package com.cip.ciphealth.adapter;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +82,12 @@ public class FoodRecipeSocialAdapter extends RecyclerView.Adapter<FoodRecipeSoci
     }
 
     public void showPopup(View v, FoodRecipe foodRecipe, AppDatabase db) {
+
+        if (foodRecipe.getRecipeText().startsWith("http")){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(foodRecipe.getRecipeText()));
+            context.startActivity(browserIntent);
+            return;
+        }
 
         Dialog myDialog = new Dialog(context);
         myDialog.setContentView(R.layout.food_recipe_popup);
