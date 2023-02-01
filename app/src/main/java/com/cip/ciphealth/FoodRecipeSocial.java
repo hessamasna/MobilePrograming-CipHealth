@@ -42,11 +42,9 @@ public class FoodRecipeSocial extends AppCompatActivity {
         setContentView(R.layout.activity_food_recipe_social);
 
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-//        FoodRecipe foodRecipe = new FoodRecipe("Food Recipe", "Meet & pizzaMeet & pizzaMeet & pizzaMeet & pizzaMeet & pizza", "2022", "admin");
-//        db.foodRecipeDao().insertFoodRecipe(foodRecipe);
+
         RecyclerView recyclerView = findViewById(R.id.food_recipe_social_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
         FoodRecipeSocialAdapter foodRecipeSocialAdapter = new FoodRecipeSocialAdapter(this, db.foodRecipeDao().getAllFoodRecipes(), db);
         recyclerView.setAdapter(foodRecipeSocialAdapter);
     }
@@ -76,7 +74,7 @@ public class FoodRecipeSocial extends AppCompatActivity {
                 Date date = new Date();
                 FoodRecipe foodRecipe = new FoodRecipe(add_recipe_title.getText().toString(), add_recipe_text.getText().toString(), String.valueOf(date.getDate()), LoggedInUser.getLoggedInUser().getUser().getName());
                 db.foodRecipeDao().insertFoodRecipe(foodRecipe);
-
+                refreshList();
             }
         });
 
@@ -89,6 +87,15 @@ public class FoodRecipeSocial extends AppCompatActivity {
         });
 
         myDialog.show();
+    }
+
+    public void refreshList() {
+        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
+
+        RecyclerView recyclerView = findViewById(R.id.food_recipe_social_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(FoodRecipeSocial.this, LinearLayoutManager.VERTICAL, false));
+        FoodRecipeSocialAdapter foodRecipeSocialAdapter = new FoodRecipeSocialAdapter(FoodRecipeSocial.this, db.foodRecipeDao().getAllFoodRecipes(), db);
+        recyclerView.setAdapter(foodRecipeSocialAdapter);
     }
 
     public void SearchRecipe(View v) {
@@ -118,10 +125,7 @@ public class FoodRecipeSocial extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 public void run() {
                     p.dismiss();
-                    RecyclerView recyclerView = findViewById(R.id.food_recipe_social_recyclerView);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(FoodRecipeSocial.this, LinearLayoutManager.VERTICAL, false));
-                    FoodRecipeSocialAdapter foodRecipeSocialAdapter = new FoodRecipeSocialAdapter(FoodRecipeSocial.this, db.foodRecipeDao().getAllFoodRecipes(), db);
-                    recyclerView.setAdapter(foodRecipeSocialAdapter);
+                    refreshList();
                 }
             }, 5000);
         } else {

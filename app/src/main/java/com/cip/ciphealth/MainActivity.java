@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
 
-        HealthTips healthTips = new HealthTips("test Title","Tips message","https://yahoo.com","2022");
-        HealthTips healthTips1 = new HealthTips("test Title1","Tips messageTips messageTips messageTips message","https://yahoo.com","2022");
-        HealthTips healthTips2 = new HealthTips("test Title2","Tips message3","https://yahoo1.com","2024");
-        db.healthTipsDao().insertHealthTips(healthTips);
-        db.healthTipsDao().insertHealthTips(healthTips1);
-        db.healthTipsDao().insertHealthTips(healthTips2);
+//        HealthTips healthTips = new HealthTips("test Title","Tips message","https://yahoo.com","2022");
+//        HealthTips healthTips1 = new HealthTips("test Title1","Tips messageTips messageTips messageTips message","https://yahoo.com","2022");
+//        HealthTips healthTips2 = new HealthTips("test Title2","Tips message3","https://yahoo1.com","2024");
+//        db.healthTipsDao().insertHealthTips(healthTips);
+//        db.healthTipsDao().insertHealthTips(healthTips1);
+//        db.healthTipsDao().insertHealthTips(healthTips2);
 
         Thread background = new Thread() {
             public void run() {
