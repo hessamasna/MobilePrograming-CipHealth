@@ -15,6 +15,9 @@ public interface WeightDao {
     @Query("SELECT * FROM weighttracker ")
     List<WeightTracker> getAllWeightTrackers();
 
+    @Query("SELECT * FROM weighttracker WHERE user_ID=:id ")
+    List<WeightTracker> getAllWeightTrackersOfUser(int id);
+
     @Insert
     void insertWeightTracker(WeightTracker... WeightTrackers);
 

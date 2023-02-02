@@ -23,4 +23,7 @@ public interface CaloriesDao {
 
     @Query("DELETE FROM caloriestracker")
     void deleteAll();
+
+    @Query("SELECT * FROM caloriestracker WHERE user_ID=:id AND date=:date")
+    List<CaloriesTracker> getAllCaloriesTrackerByUserId(int id,String date);
 }
