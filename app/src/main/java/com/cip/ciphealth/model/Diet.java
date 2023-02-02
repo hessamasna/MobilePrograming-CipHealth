@@ -14,11 +14,14 @@ public class Diet {
     private String dietGoal;
     @ColumnInfo(name = "diet_text")
     private String dietText;
+    @ColumnInfo(name = "diet_link")
+    private String dietLink;
 
-    public Diet(String dietName, String dietGoal, String dietText) {
+    public Diet(String dietName, String dietGoal, String dietText,String dietLink) {
         this.dietName = dietName;
         this.dietGoal = dietGoal;
         this.dietText = dietText;
+        this.dietLink = dietLink;
     }
 
     public String getDietGoal() {
@@ -53,12 +56,21 @@ public class Diet {
         this.dietText = dietText;
     }
 
+    public String getDietLink() {
+        return dietLink;
+    }
+
+    public void setDietLink(String dietLink) {
+        this.dietLink = dietLink;
+    }
+
     @Override
     public String toString() {
         return "Diet{" +
                 "ID=" + ID +
                 ", dietName='" + dietName + '\'' +
                 ", dietText='" + dietText + '\'' +
+                ", dietLink='" + dietLink + '\'' +
                 '}';
     }
 }
