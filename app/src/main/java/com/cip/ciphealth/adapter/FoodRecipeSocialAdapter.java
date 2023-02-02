@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,12 +92,12 @@ public class FoodRecipeSocialAdapter extends RecyclerView.Adapter<FoodRecipeSoci
         myDialog.setContentView(R.layout.food_recipe_popup);
         TextView food_recipe_popup_title, food_recipe_popup_author, food_recipe_popup_date, food_recipe_popup_like, food_recipe_popup_close_btn, food_recipe_popup_message;
 
-        food_recipe_popup_title = (TextView) myDialog.findViewById(R.id.food_recipe_popup_title);
-        food_recipe_popup_author = (TextView) myDialog.findViewById(R.id.food_recipe_popup_author);
-        food_recipe_popup_date = (TextView) myDialog.findViewById(R.id.food_recipe_popup_date);
+        food_recipe_popup_title = (TextView) myDialog.findViewById(R.id.diet_popup_title);
+        food_recipe_popup_author = (TextView) myDialog.findViewById(R.id.diet_popup_goal);
+        food_recipe_popup_date = (TextView) myDialog.findViewById(R.id.diet_popup_date);
         food_recipe_popup_like = (TextView) myDialog.findViewById(R.id.food_recipe_popup_like);
-        food_recipe_popup_close_btn = (TextView) myDialog.findViewById(R.id.food_recipe_popup_close_btn);
-        food_recipe_popup_message = (TextView) myDialog.findViewById(R.id.food_recipe_popup_message);
+        food_recipe_popup_close_btn = (TextView) myDialog.findViewById(R.id.diet_close);
+        food_recipe_popup_message = (TextView) myDialog.findViewById(R.id.diet_popup_plan);
 
 
         food_recipe_popup_title.setText(foodRecipe.getRecipeTitle());

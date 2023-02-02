@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/food_recipe_popup_title"
+        android:id="@+id/diet_popup_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/food_recipe_popup_message"
+        android:id="@+id/diet_popup_plan"
         android:layout_width="361dp"
         android:layout_height="264dp"
         android:layout_marginStart="24dp"
@@ -29,37 +29,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/food_recipe_popup_author" />
+        app:layout_constraintTop_toBottomOf="@+id/diet_popup_goal" />
 
     <TextView
-        android:id="@+id/food_recipe_popup_author"
+        android:id="@+id/diet_popup_goal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="author"
-        app:layout_constraintStart_toStartOf="@+id/food_recipe_popup_title"
-        app:layout_constraintTop_toBottomOf="@+id/food_recipe_popup_title" />
+        app:layout_constraintStart_toStartOf="@+id/diet_popup_title"
+        app:layout_constraintTop_toBottomOf="@+id/diet_popup_title" />
 
     <TextView
-        android:id="@+id/food_recipe_popup_date"
+        android:id="@+id/diet_popup_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="date"
-        app:layout_constraintStart_toEndOf="@+id/food_recipe_popup_author"
-        app:layout_constraintTop_toBottomOf="@+id/food_recipe_popup_title" />
+        app:layout_constraintStart_toEndOf="@+id/diet_popup_goal"
+        app:layout_constraintTop_toBottomOf="@+id/diet_popup_title" />
 
     <TextView
         android:id="@+id/food_recipe_popup_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="like"
-        app:layout_constraintEnd_toEndOf="@+id/food_recipe_popup_close_btn"
-        app:layout_constraintTop_toTopOf="@+id/food_recipe_popup_date" />
+        app:layout_constraintEnd_toEndOf="@+id/diet_close"
+        app:layout_constraintTop_toTopOf="@+id/diet_popup_date" />
 
     <TextView
-        android:id="@+id/food_recipe_popup_close_btn"
+        android:id="@+id/diet_close"
         android:layout_width="28dp"
         android:layout_height="23dp"
         android:layout_marginTop="24dp"
