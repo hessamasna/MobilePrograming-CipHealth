@@ -14,7 +14,7 @@ import com.cip.ciphealth.model.HealthTips;
 import com.cip.ciphealth.model.User;
 import com.cip.ciphealth.model.WeightTracker;
 
-@Database(entities = {User.class, Diet.class, WeightTracker.class, CaloriesTracker.class, HealthTips.class, FoodRecipe.class}, version = 1)
+@Database(entities = {User.class, Diet.class, WeightTracker.class, CaloriesTracker.class, HealthTips.class, FoodRecipe.class}, version = 3)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();

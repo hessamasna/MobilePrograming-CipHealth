@@ -16,6 +16,9 @@ public interface DietDao {
     @Query("SELECT * FROM diet ")
     List<Diet> getAllDiets();
 
+    @Query("SELECT * FROM diet WHERE ID =:id  ")
+    List<Diet> getDietWithId(int id);
+
     @Insert
     void insertDiet(Diet... Diets);
 

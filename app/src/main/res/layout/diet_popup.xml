@@ -36,27 +36,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="author"
+        android:text="goal"
         app:layout_constraintStart_toStartOf="@+id/diet_popup_title"
         app:layout_constraintTop_toBottomOf="@+id/diet_popup_title" />
-
-    <TextView
-        android:id="@+id/diet_popup_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:text="date"
-        app:layout_constraintStart_toEndOf="@+id/diet_popup_goal"
-        app:layout_constraintTop_toBottomOf="@+id/diet_popup_title" />
-
-    <TextView
-        android:id="@+id/food_recipe_popup_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="like"
-        app:layout_constraintEnd_toEndOf="@+id/diet_close"
-        app:layout_constraintTop_toTopOf="@+id/diet_popup_date" />
 
     <TextView
         android:id="@+id/diet_close"
@@ -72,4 +54,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/diet_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Read more..."
+        android:textColor="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diet_popup_plan" />
 </androidx.constraintlayout.widget.ConstraintLayout>

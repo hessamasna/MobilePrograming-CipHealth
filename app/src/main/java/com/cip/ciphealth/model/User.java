@@ -31,7 +31,7 @@ public class User {
     @ColumnInfo(name = "dietID")
     private int dietID;
     @ColumnInfo(name = "bmi")
-    private int bmi;
+    private float bmi;
     @ColumnInfo(name = "medal")
     private int medal;
 
@@ -60,11 +60,11 @@ public class User {
         this.medal = medal;
     }
 
-    public int getBmi() {
+    public float getBmi() {
         return bmi;
     }
 
-    public void setBmi(int bmi) {
+    public void setBmi(float bmi) {
         this.bmi = bmi;
     }
 

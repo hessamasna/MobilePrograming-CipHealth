@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainPage">
 
+    <EditText
+        android:id="@+id/calorie_tracker_input2"
+        android:layout_width="74dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="88dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+        android:id="@+id/calorie_input_btn2"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="60dp"
+        android:onClick="RecordCalorie"
+        android:text="Add calorie "
+        app:layout_constraintStart_toEndOf="@+id/weight_tracker_input"
+        app:layout_constraintTop_toTopOf="@+id/weight_tracker_input" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/health_tips_recycler"
         android:layout_width="fill_parent"
@@ -32,35 +54,73 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/weight_tracker_input_btn"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:onClick="RecordWeight"
+        android:text="Add your weight record"
+        app:layout_constraintStart_toEndOf="@+id/weight_tracker_input"
+        app:layout_constraintTop_toTopOf="@+id/weight_tracker_input" />
+
     <EditText
         android:id="@+id/weight_tracker_input"
-        android:layout_width="106dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="74dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
-        android:id="@+id/weight_tracker_input_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="RecordWeight"
-        android:text="Add you weight record"
-        app:layout_constraintStart_toEndOf="@+id/weight_tracker_input"
-        app:layout_constraintTop_toTopOf="@+id/weight_tracker_input" />
-
-    <Button
         android:id="@+id/go_to_recipe_social"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:onClick="GotoRecipeSocial"
-        android:text="Go to Recipe Social"
+        android:text="Recipe Social"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/go_to_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:onClick="GotoProfile"
+        android:text="Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/go_to_recipe_social"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/go_to_diet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="showPopupDiet"
+        android:text="Diet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/go_to_recipe_social" />
+
+    <TextView
+        android:id="@+id/calorie_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        android:textColor="#FEFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/calorie_input_btn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/calorie_input_btn2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,6 +89,19 @@ public class FoodRecipeSocial extends AppCompatActivity {
         myDialog.show();
     }
 
+    public void GotoProfile(View v) {
+        Intent secondActivityIntent = new Intent(
+                getApplicationContext(), Profile.class
+        );
+        startActivity(secondActivityIntent);
+    }
+    public void backToMainPage(View v) {
+        Intent secondActivityIntent = new Intent(
+                getApplicationContext(), MainPage.class
+        );
+        startActivity(secondActivityIntent);
+    }
+
     public void refreshList() {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
 

@@ -86,7 +86,7 @@ public class HealthTipsAdapter extends RecyclerView.Adapter<HealthTipsAdapter.He
             health_tips_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(healthTips.getTipsLink()));
                     context.startActivity(browserIntent);
                 }
             });
